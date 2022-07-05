@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://www.startech.com.bd/image/catalog/logo.png" rel="icon" />  
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+        <!-- Icon - IconMonster -->
+        <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css" />
+        <!-- Mumble UI -->
+        <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
+        <!-- Dev Search UI -->
+        <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
+        <title>Star Tech</title>
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+	      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	      <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"> -->
+
+        
+    
+
+    
+    </head>
+    <header class="header">
+        <div class="container container--narrow">
+          <a href="" class="header__logo">
+            <img src="{% static 'images/startechlogo.png' %}" alt="projecthub Logo" />
+          </a>
+          <nav class="header__nav">
+            <input type="checkbox" id="responsive-menu" />
+            <label for="responsive-menu" class="toggle-menu">
+              <span>Menu</span>
+              <div class="toggle-menu__lines"></div>
+            </label>
+            <ul class="header__menu">
+              <li class="header__menuItem"><a href="{% url 'register' %}">Register</a></li>
+                <li class="header__menuItem"><a href="{% url 'projects' %}">Computer</a></li>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+                  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="False" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button> -->
+                  <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                      {% if user.is_authenticated %}
+                      
+                      <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+                      </li>
+                
+                      {% else %}
+                
+                      <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                      </li>
+                
+                      {% endif %}
+                    </ul>
+                    <!-- <div class="form-inline my-2 my-lg-0">
+                     
+                      
+                      <a href="{% url 'cart' %}">
+                       <img  id="cart-icon" src="{% static 'images/cart.png' %}">
+                     </a>
+                     <p id="cart-total">0</p>
+             
+                   </div> -->
+                  </div>
+                </nav>
+            </ul>
+            
+          </nav>
+        </div>
+      </header>
+    
+        
+
+    <body>
+        
+        <div class="mkt-s2 container">
+            <h2 class="mkt-s2-h"></h2>
+            <div class="mkt-s2-body">
+                <div class="col-md-4 mkt-vp">
+                    <div class="hero-section__box">
+                        <h1>Welcome to <em>Startech</em></h1>
+                    </div>
+                    <img class="" src="{{ STATIC_URL }}images/home.jpg"/>
+                    <h2> A website developed by <em> Poi Poi kore project kora hobe </em>!</h2>
+                    
+                </div>
+            </div>
+            {# Second Signup Link #}
+        </div>
+          
+    </body>
+    <footer>
+        <div class="container">
+            <div class="main-footer">
+    
+                
+                <div class="footer-block about-us">
+                    <h3>About Us</h3>
+                    <ul>
+                    <section class="projectsList">
+                        <div class="column">
+                            <div class="card project">
+                              <a href="single-project.html" class="project">
+                                <img class="project__thumbnail" src="images/IMG_7231_edit.jpg" alt="project thumbnail" />
+                                <div class="card__body">
+                                  <h3 class="project__title">Md. Rohmat Ulla</h3>
+                                  <p><a class="project__author" href="">Id : C191033 </a></p>
+                                  <p><a class="project__author" href="">Phone No : 01852125522</a></p>
+                                  <p><a>sshantorrohmat@gmail.com</a></p>
+                                  <p><a class="project__author" href="https://www.linkedin.com/in/shanto-rohmat-26a978203">Linkdin</a></p>
+                                  <p><a class="project__author" href="https://www.facebook.com/shantorohmat.shantorohmat/">Facebook</a></p>
+                                  <div class="project__tags">
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                        <!-- <div class="column">
+                            <div class="card project">
+                              <a href="single-project.html" class="project">
+                                <img class="project__thumbnail" src="images/rakib.jpg" alt="project thumbnail" />
+                                <div class="card__body">
+                                  <h3 class="project__title">Rakib Hasan Rahat</h3>
+                                  <p><a class="project__author" href="">Id : C191016 </a></p>
+                                  <p><a>rakibhasanrahat3467@gmail.com</a></p>
+                                  <p><a class="project__author" href="https://www.facebook.com/lxr.rahat.1">Facebook</a></p>
+                                  <div class="project__tags">
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div> -->
+                          <div class="column">
+                            <div class="card project">
+                              <a href="single-project.html" class="project">
+                                <img class="project__thumbnail" src="images/faisal.jpg" alt="project thumbnail" />
+                                <div class="card__body">
+                                  <h3 class="project__title">Obyedullah Faisal</h3>
+                                  <p><a class="project__author" href="">Id : C191012</a></p>
+                                  <p><a>c191012@ugrad.iiuc.ac.bd</a></p>
+                                  <p><a class="project__author" href="https://www.facebook.com/asm.obayedullah.1">Facebook</a></p>
+                                  <div class="project__tags">
+                                  </div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                    </section>
+                          
+                    </ul>
+                </div>
+                <!-- <div class="footer-block org-info">
+                    <h4>Stay Connected</h4>
+                    <p><b class="store-name">Star Tech & Engineering Ltd</b><br/>6th floor, 28 Kazi Nazrul Islam Ave,Navana Zohura Square, Dhaka 1000</p>
+                    <p><b>Email:</b><br/><a href="mailto:info.webteam@startechbd.com">info.webteam@startechbd.com</a> </p>
+    
+                    <p class="social-links">
+                        <a href="https://www.facebook.com/star.tech.ltd/" target="_blank" rel="noopener" title="Facebook">
+                            <span class="icon-sprite fb"></span>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UC-SDF_4DM3unoP7JeAodz2g" target="_blank" rel="noopener" title="Youtube">
+                            <span class="icon-sprite youtube"></span>
+                        </a>
+                        <a href="https://www.instagram.com/startech.com.bd/" target="_blank" rel="noopener" title="Instagram">
+                            <span class="icon-sprite insta"></span>
+                        </a>
+                    </p>
+    
+                </div> -->
+            <!-- </div> -->
+            <div class="row sub-footer">
+                <div class="col-md-6 copyright-info">
+                    <p>© 2020 Star Tech & Engineering Ltd | All rights reserved</p>
+                </div>
+                <div class="col-md-6 powered-by">
+                    <p>Powered By: <a href="https://soft.startech.com.bd/" target="_blank" rel="noopener">Star Soft</a> </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="overlay"></div>
+</html>

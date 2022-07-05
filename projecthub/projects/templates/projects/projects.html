@@ -1,0 +1,82 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<main class="projects">
+        <section class="hero-section text-center">
+          <div class="container container--narrow">
+            <div class="hero-section__box">
+              <h2>Search for <span>Product</span></h2>
+            </div>
+    
+            <div class="hero-section__search">
+              <form class="form" action="#" method="get">
+                <div class="form__field">
+                  <label for="formInput#search">Search By Projects </label>
+                  <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                    placeholder="Search", value= "{{ search_query }}"/>
+                </div>
+    
+                <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+              </form>
+            </div>
+          </div>
+        </section>
+        <!-- Search Result: DevList -->
+        <section class="projectsList">
+          <div class="container">
+            <div class="grid grid--three">
+             
+                {% for p in projects %}
+                    <div class="column">
+                        <div class="card project">
+                        <!-- <a href="{% url 'project_detail' p.id %}" class="project"> -->
+                        <img class="project__thumbnail" src="{{ p.featured_images.url }}"  alt="project thumbnail" />
+                        <div class="card__body">
+                        <h6 class="project__title">{{p.title|title }}</h6>
+                       
+                        
+                        <div class="project__tags">
+                                {% for tag in p.tags.all %}
+                                        <span class="tag tag--pill tag--main">
+                                                <small>{{tag}}</small>
+                                        </span>
+                                {% endfor %}
+                        </div> 
+                        <!-- <h6 class="btn btn-link">{{p.brand}}</h6> -->
+                        
+                        <!-- <h5 style="color:blue;"> -->
+                          <p style="font-size:30px;font-family:verdana; background-color:rgb(222, 222, 243); color:rgb(4, 22, 4)">{{p.status}}</p>
+                        <!-- </h5> -->
+                        <br>
+                        <div class="box-element product">
+                          
+                          <!-- <a href="{% url 'cart' %}">Add To Cart</a> -->
+                          <button   class="btn btn-outline-secondary add-btn">
+                            <a href="{% url 'cart' %}">Add to Cart</a>
+                          </button>
+                          <a class="btn btn-outline-success"  href="{% url 'project_detail' p.id %}" class="project">View</a>
+                          <h4 style="display: inline-block; float: right"><strong>{{p.price}}</strong></h4>
+                  
+                        </div>
+                        <!-- <button type="button" class="btn btn--sub btn--lg">{{p.price}}</button>
+                        <a href="" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Buy Now</a>  -->
+                        </div>
+                        </a>
+                        </div>
+                        </div>
+              {% endfor %}
+    
+              
+    
+            </div>
+          </div>
+        </section>
+    
+       
+      </main>
+
+{% endblock %}
+

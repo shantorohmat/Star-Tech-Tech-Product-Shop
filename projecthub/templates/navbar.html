@@ -1,0 +1,59 @@
+
+{% load static %}
+
+<header class="header">
+    <div class="container container--narrow">
+      <a href="{% url 'projects' %}" class="header__logo">
+        <img src="{% static 'images/startechlogo.png' %}" alt="projecthub Logo" />
+      </a>
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          
+          <div class="toggle-menu__lines"></div>
+        </label>
+        <ul class="header__menu">
+          <li class="header__menuItem"><a href="{% url 'create_project' %}">Add Product</a></li>
+          <li class="header__menuItem"><a href="/">Home</a></li>
+          
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="False" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                {% if user.is_authenticated %}
+                
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+                </li>
+          
+                {% else %}
+          
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+          
+                {% endif %}
+              </ul>
+              <!-- <div class="form-inline my-2 my-lg-0">
+                
+                
+                <a href="{% url 'cart' %}">
+                 <img  id="cart-icon" src="{% static 'images/cart.png' %}">
+               </a>
+               <p id="cart-total">0</p>
+       
+             </div> -->
+            </div>
+          </nav>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!--Navbar-->

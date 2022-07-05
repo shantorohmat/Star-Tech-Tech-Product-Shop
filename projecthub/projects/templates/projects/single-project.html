@@ -1,0 +1,80 @@
+{% extends 'main.html' %}
+{% load static %}
+
+
+{% block content %}
+
+
+
+  <!-- Main Section -->
+  <main class="singleProject my-md">
+    <div class="container">
+      <div class="layout">
+        <div class="column column--1of3">
+          <h3 class="singleProject__subtitle">Tools & Stacks</h3>
+          <div class="singleProject__toolStack">
+            
+            {% for tag in project.tags.all %}
+              <span class="tag tag--pill tag--main">
+                    <small>{{tag}}</small>
+              </span>
+              
+            {% endfor %}
+            <span class="tag tag--pill tag--main"><small>{{project.price}}</small></span>
+            <span class="tag tag--pill tag--main"><small>{{project.brand}}</small></span>
+            
+          </div>
+          <!-- {% if project.demo_link%}
+               <a class="singleProject__liveLink" href="#" target="_blank"><i class="im im-external-link"></i>Demo Link</a>
+          {% endif %}
+          {% if y.source_link %}
+               <a class="singleProject__liveLink" href="#" target="_blank"><i class="im im-external-link"></i>Source Link</a>
+          {% endif %} -->
+         
+          <a href="{% url 'edit_project' project.id %}"><button type="button">
+            <span class="tag tag--pill tag--main">Edit product</span>
+          </button>  &emsp; &emsp; </a>
+          
+          <!-- <a href="{% url 'projects'  %}"><button type="button">home</button></a>  -->
+          <a href="{% url 'delete_project' project.id %}"><button type="button">
+            <span class="tag tag--pill tag--main">Delete</span>
+          </button></a> 
+          <hr>
+          <h3 class="singleProject__subtitle">Key Feature</h3>
+          <div class="singleProject_details">
+            {{project.key_feature}}
+          </div>
+          <li><span>
+            <a target="_blank">warranty:{{project.warranty}}</a>
+          </span></li>
+          
+          
+          
+          
+          
+          
+          
+        </div>
+        <div class="column column--2of3">
+          <img src="{{ project.featured_images.url }}" alt="portfolio thumbnail" width="500" height="600" />
+          
+          <h2 class="singleProject__title">{{ project.title }}</h2>
+          <h3 class="singleProject__subtitle">About the product</h3>
+          <div style="color: rgb(9, 71, 53);font-family: Arial;" class="singleProject__info">
+           {{project.description }}
+          </div>
+          <h3 class="singleProject__subtitle">Basic Information</h3>
+          <div style="color: rgb(9, 71, 53);font-family: Arial; " class="singleProject_details">
+            {{project.basic_information}}
+          </div>
+          
+          
+
+          
+      </div>
+    </div>
+    </div>
+  </main>
+
+
+{% endblock %} 
